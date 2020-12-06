@@ -1,0 +1,33 @@
+{
+  "name": "npm-registry-server",
+  "version": "1.0.0",
+  "description": "Service building the graph dependencies of an npm package",
+  "main": "main.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "debug": "nodemon dist/main.js",
+    "dev": "concurrently \"yarn watch\" \"yarn debug\"",
+    "start": "node dist/main.js",
+    "clean": "rm -r dist/ *.log; exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/async": "^3.2.4",
+    "@types/cors": "^2.8.8",
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.10",
+    "@types/semver": "^7.3.4",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "got": "^11.8.0",
+    "semver": "^7.3.2"
+  }
+}
