@@ -18,7 +18,9 @@ async function findPackageDependencies(rootName: string, rootVersion: string) {
       throw new Error(`Cannot find the package "${name}"`);
     }
     const allVersions = Object.keys(npmPackage.versions);
-    const resolvedVersion = maxSatisfying(allVersions, version);
+    const _version = version === "latest" ? "*" : version;
+    const resolvedVersion = maxSatisfying(allVersions, _version);
+
     if (!resolvedVersion) {
       throw new Error(
         `Could not resolve version for package ${name} and range ${version}`
